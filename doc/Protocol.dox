@@ -1,0 +1,50 @@
+/*! \page rfc Communication protocol
+ *
+ *  symbol | meaning
+ *  -------|--------
+ *  X      | width or horizontal position
+ *  Y      | height or vertical position
+ *  q0     | resource 0 (food) quantity
+ *  q1     | resource 1 (linemate) quantity
+ *  q2     | resource 2 (deraumere) quantity
+ *  q3     | resource 3 (sibur) quantity
+ *  q4     | resource 4 (mendiane) quantity
+ *  q5     | resource 5 (phiras) quantity
+ *  q6     | resource 6 (thystame) quantity
+ *  n      | Player number
+ *  O      | Orientation: 1(N), 2(E), 3(S), 4(W)
+ *  L      | Level or incantation level
+ *  e      | Egg number
+ *  T      | Time unit
+ *  R      | Incantation result
+ *  M      | Message
+ *  i      | Ressource number
+ *
+ *
+ *  Server                                   | Client            | Details
+ *  -----------------------------------------|-------------------|--------
+ *  msz X Y                                  | msz               | Map size
+ *  bct X Y q0 q1 q2 q3 q4 q5 q6             | bct X Y           | Tile content
+ *  bct X Y q0 q1 q2 q3 q4 q5 q6 * nbr_tiles | mct               | Content of the map (all the tiles)
+ *  tna N * nbr_teams                        | tna               | Name of all teams
+ *  pnw n X Y O L N                          |                   | New player
+ *  ppo n X Y O                              | ppo n             | Player position
+ *  plv n L                                  | plv n             | Player level
+ *  pin n X Y q0 q1 q2 q3 q4 q5 q6           | pin n             | Player inventory
+ *  pex n                                    |                   | Player expelled
+ *  pbc n M                                  |                   | Player broadcast
+ *  pic X Y L n n n ...                      | pic X Y L         | Incantation start
+ *  pfk n                                    |                   | Player fork
+ *  pdr n i                                  |                   | Player drop resource
+ *  pgt n i                                  |                   | Player take resource
+ *  pdi n                                    |                   | Player death
+ *  enw e n X Y                              |                   | New egg
+ *  ebo e                                    |                   | Egg born
+ *  edi e                                    |                   | Egg dead
+ *  sgt T                                    | sgt               | Time unit request
+ *  ssn T                                    | sst T             | Time unit set
+ *  seg N                                    |                   | End of game
+ *  smg M                                    |                   | Server message
+ *  suc                                      |                   | Unknown command
+ *  sbp                                      |                   | Bad parameter
+ */
